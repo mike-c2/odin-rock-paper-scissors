@@ -54,3 +54,21 @@ function getComputerChoice() {
 
   return choice;
 }
+
+function playRound(playerSelection, computerSelection) {
+  switch(true) {
+    case (playerSelection === computerSelection):
+      ties++;
+      console.log(`It's a Tie! You have both played ${playerSelection}.`)
+      break;
+    case (playerSelection === ROCK && computerSelection === SCISSORS):
+    case (playerSelection === PAPER && computerSelection === ROCK):
+    case (playerSelection === SCISSORS && computerSelection === PAPER):
+      playerWins++;
+      console.log(`You Win! ${playerSelection} beats ${computerSelection}.`)
+      break;
+    default:
+      computerWins++;
+      console.log(`You Lose! ${playerSelection} is beaten by ${computerSelection}.`)
+  }
+}
