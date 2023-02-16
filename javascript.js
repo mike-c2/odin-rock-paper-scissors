@@ -39,9 +39,9 @@ function getPlayerChoice() {
 }
 
 function getComputerChoice() {
-  let choice = Math.floor(Math.random() * 3);  
+  let choice;  
   
-  switch(choice) {
+  switch(Math.floor(Math.random() * 3)) {
     case 0:
       choice = ROCK;
       break;
