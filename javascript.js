@@ -72,3 +72,9 @@ function playRound(playerSelection, computerSelection) {
       console.log(`You Lose! ${playerSelection} is beaten by ${computerSelection}.`)
   }
 }
+
+function reportScore() {
+  console.log(`       You: ${playerWins}`);
+  console.log(`  Computer: ${computerWins}`);
+  console.log(`      Ties: ${ties}`);
+}
