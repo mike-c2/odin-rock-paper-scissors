@@ -12,7 +12,7 @@ function getPlayerChoice() {
   let notValid = true;
 
   while(notValid) {
-    choice = window.prompt('Please type in your choice: Rock, Paper, or Scissors: ', '');
+    choice = window.prompt('Please type in your choice: Rock, Paper, or Scissors: ');
     // In case the user clicks the 'Cancel' button.
     choice = choice ?? '';
     choice = choice.trim();
