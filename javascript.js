@@ -71,6 +71,22 @@ function printCurrentScore(playerWins, computerWins, ties) {
   console.log(`      Ties: ${ties}`);
 }
 
+function printFinalScore(playerWins, computerWins, ties) {
+  console.log('Final Score:');
+  printCurrentScore(playerWins, computerWins, ties);
+  
+  if(playerWins > computerWins) {
+    console.log('You won the game!');
+    
+  }
+  else if(computerWins > playerWins) {
+    console.log('You lost the game.');
+  }
+  else {
+    console.log('The game is a tie.');
+  }
+}
+
 function game() {
   let playerWins = 0;
   let computerWins = 0;
@@ -99,19 +115,7 @@ function game() {
     }
   }
   
-  console.log('Final Score:');
-  printCurrentScore(playerWins, computerWins, ties);
-  
-  if(playerWins > computerWins) {
-    console.log('You won the game!');
-    
-  }
-  else if(computerWins > playerWins) {
-    console.log('You lost the game.');
-  }
-  else {
-    console.log('The game is a tie.');
-  }
+  printFinalScore(playerWins, computerWins, ties);
 }
 
 game();
