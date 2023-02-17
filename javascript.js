@@ -88,10 +88,10 @@ function printFinalScore(playerWins, computerWins, ties) {
 }
 
 function game() {
+  const numberOfRounds = 5;
   let playerWins = 0;
   let computerWins = 0;
   let ties = 0;
-  let numberOfRounds = 5;
 
   console.log('Welcome to this game of Rock, Paper, Scissors!');
   console.log(`You will play ${numberOfRounds} rounds against the Computer\n.`)
