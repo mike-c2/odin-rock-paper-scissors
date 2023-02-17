@@ -65,7 +65,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function reportScore(playerWins, computerWins, ties) {
+function printCurrentScore(playerWins, computerWins, ties) {
   console.log(`       You: ${playerWins}`);
   console.log(`  Computer: ${computerWins}`);
   console.log(`      Ties: ${ties}`);
@@ -82,7 +82,7 @@ function game() {
   
   for(let i = 0; i < numberOfRounds; i++) {
     console.log('Current Score:');
-    reportScore(playerWins, computerWins, ties);
+    printCurrentScore(playerWins, computerWins, ties);
     console.log(`Round ${i + 1}`);
     
     let result = playRound(getPlayerChoice(), getComputerChoice());
@@ -100,7 +100,7 @@ function game() {
   }
   
   console.log('Final Score:');
-  reportScore(playerWins, computerWins, ties);
+  printCurrentScore(playerWins, computerWins, ties);
   
   if(playerWins > computerWins) {
     console.log('You won the game!');
