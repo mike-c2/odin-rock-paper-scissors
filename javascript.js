@@ -2,11 +2,6 @@ const ROCK = 'Rock';
 const PAPER = 'Paper';
 const SCISSORS = 'Scissors';
 
-// Used to keep score
-let playerWins = 0;
-let computerWins = 0;
-let ties = 0;
-
 function getPlayerChoice() {
   let choice;
   let notValid = true;
@@ -68,4 +63,10 @@ function playRound(playerSelection, computerSelection) {
     default:
       return `You Lose! ${computerSelection} beats ${playerSelection}.`;
   }
+}
+
+function reportScore(playerWins, computerWins, ties) {
+  console.log(`       You: ${playerWins}`);
+  console.log(`  Computer: ${computerWins}`);
+  console.log(`      Ties: ${ties}`);
 }
