@@ -70,3 +70,48 @@ function reportScore(playerWins, computerWins, ties) {
   console.log(`  Computer: ${computerWins}`);
   console.log(`      Ties: ${ties}`);
 }
+
+function game() {
+  let playerWins = 0;
+  let computerWins = 0;
+  let ties = 0;
+  let numberOfRounds = 5;
+
+  console.log('Welcome to this game of Rock, Paper, Scissors!');
+  console.log(`You will play ${numberOfRounds} rounds against the Computer\n.`)
+  
+  for(let i = 0; i < numberOfRounds; i++) {
+    console.log('Current Score:');
+    reportScore(playerWins, computerWins, ties);
+    console.log(`Round ${i + 1}`);
+    
+    let result = playRound(getPlayerChoice(), getComputerChoice());
+    console.log(result);
+    
+    if(result.includes('Win')) {
+      playerWins++;
+    }
+    else if(result.includes('Lose')) {
+      computerWins++;
+    }
+    else {
+      ties++;
+    }
+  }
+  
+  console.log('Final Score:');
+  reportScore(playerWins, computerWins, ties);
+  
+  if(playerWins > computerWins) {
+    console.log('You won the game!');
+    
+  }
+  else if(computerWins > playerWins) {
+    console.log('You lost the game.');
+  }
+  else {
+    console.log('The game is a tie.');
+  }
+}
+
+game();
