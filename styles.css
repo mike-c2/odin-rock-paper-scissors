@@ -5,9 +5,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  color: rgb(2, 50, 2);
   background-color: lightsalmon;
   font-family: 'Bangers', cursive;
+  margin: 0;
 }
 
 h1 {
@@ -31,12 +31,19 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  color: lightsalmon;
+  background-color: rgb(3, 83, 3);
   margin: 0;
-  padding: 0;
+  padding: 1em 0;
   list-style-type: none;
   font-size: 1.5rem;
 }
 
 li {
   margin: 0 1em
+}
+
+.info {
+  color: lightsalmon;
+  background-color: rgb(2, 50, 2);
 }
