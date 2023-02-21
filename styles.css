@@ -1,20 +1,40 @@
 body {
   min-height: 100vh;
   min-width: 100vw;
-  font-family: 'Chewy', cursive;
-  text-shadow: 0.3rem 0.3rem black;
-  color: rgb(29, 141, 29);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  color: rgb(2, 50, 2);
   background-color: lightsalmon;
+  font-family: 'Bangers', cursive;
 }
 
 h1 {
+  color: rgb(29, 141, 29);
+  font-family: 'Chewy', cursive;
+  text-shadow: 0.3rem 0.3rem black;
   margin: 0.2em 0 0 0;
 }
 
 header {
   font-size: 2.8rem;
+}
+
+header {
+  display: flex;
+  flex: 0 1 auto;
+}
+
+.rules {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+li {
+  margin: 0 1.5em
 }
