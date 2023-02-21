@@ -118,4 +118,4 @@ function game() {
   printFinalScore(playerWins, computerWins, ties);
 }
 
-game();
+//game();
