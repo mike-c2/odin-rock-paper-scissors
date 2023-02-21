@@ -21,20 +21,22 @@ header {
   font-size: 2.4rem;
 }
 
-header {
+footer {
   display: flex;
-  flex: 0 1 auto;
+  width: 100%;
 }
 
 .rules {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  flex: 1;
   margin: 0;
   padding: 0;
   list-style-type: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 li {
-  margin: 0 1.5em
+  margin: 0 1em
 }
