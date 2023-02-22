@@ -34,8 +34,9 @@ header {
   margin: 0.2em 0;
 }
 
-.round-select-container {
+.game-setup {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
