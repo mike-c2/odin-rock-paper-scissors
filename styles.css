@@ -63,7 +63,50 @@ select {
   transition: border-color 0.15s, color 0.15s, background-color 0.15s;
 }
 
+.game-status {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 2rem;
+}
 
+.game-status p {
+  margin: 0 1em;
+}
+
+.game-board {
+  display: flex;
+}
+
+.player-options {
+  display: flex;
+  gap: 0.4em;
+}
+
+.rock-option,
+.paper-option,
+.scissors-option {
+  display: flex;
+  background-color: white;
+  border-style: solid;
+  border-width: 1rem;
+  border-color: rgb(70, 7, 7);
+}
+
+.rock-image,
+.paper-image,
+.scissors-image {
+  object-fit: cover;
+  height: 10rem;
+  width: 10rem;
+}
+
+.paper-image {
+  object-position: 0 85%;  
+}
+
+.scissors-image {
+  object-fit: contain;
+}
 
 footer {
   display: flex;
