@@ -11,7 +11,7 @@ body {
   margin: 0;
 }
 
-h1 {
+h1, .versus {
   color: rgb(29, 141, 29);
   font-family: 'Chewy', cursive;
   text-shadow: 0.3rem 0.3rem black;
@@ -67,14 +67,16 @@ select {
   display: flex;
   flex-wrap: wrap;
   font-size: 2rem;
+  margin-bottom: 1em;
 }
 
 .game-status p {
-  margin: 0 1em;
+  margin: 0 1.3em;
 }
 
 .game-board {
   display: flex;
+  justify-content: space-between;
 }
 
 .player-options {
@@ -82,14 +84,31 @@ select {
   gap: 0.4em;
 }
 
+.versus {
+  align-self: center;
+  font-size: 6.0rem;
+  padding: 0 0.2em;
+}
+
 .rock-option,
 .paper-option,
-.scissors-option {
+.scissors-option,
+.unknown-option {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   border-style: solid;
   border-width: 1rem;
   border-color: rgb(70, 7, 7);
+}
+
+.unknown-option {
+  height: 10rem;
+  width: 10rem;
+  color: black;
+  background-color: gray;
+  font-size: 7rem;
 }
 
 .rock-image,
@@ -106,6 +125,13 @@ select {
 
 .scissors-image {
   object-fit: contain;
+}
+
+.game-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5em;
+  font-size: 2rem;
 }
 
 footer {
