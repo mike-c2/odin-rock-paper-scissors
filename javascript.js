@@ -1,4 +1,26 @@
 function createRoundSelector(numberOfRounds, defaultRound = 1) {
+  if(isNaN(numberOfRounds) || numberOfRounds < 1) {
+    let errorMessage =`numberOfRounds value ${numberOfRounds} is not valid,`;
+    errorMessage += 'it will be set to 1 instead.';
+    console.error(errorMessage);
+    numberOfRounds = 1;
+  }
+  
+  if(isNaN(defaultRound) || defaultRound < 1) {
+    let errorMessage =`defaultRound value ${defaultRound} is not valid,`;
+    errorMessage += 'it will be set to 1 instead.';
+    console.error(errorMessage);
+    defaultRound = 1;
+  }
+  
+  if(defaultRound > numberOfRounds) {
+    let warningMessage=`defaultRound value ${defaultRound} is greater than `;
+    warningMessage += `the numberOfRounds value ${numberOfRounds}. The`;
+    warningMessage += `defaultRound will be set to ${numberOfRounds} instead.`
+    console.warn(warningMessage);
+    defaultRound = numberOfRounds;
+  }
+
   const roundSelectContainer = document.createElement('div');
   
   const roundSelectLabel = document.createElement('label');
@@ -26,7 +48,7 @@ function createRoundSelector(numberOfRounds, defaultRound = 1) {
   return roundSelectContainer;
 }
 
-function createGameSetup() {
+function createGameSetup(numberOfRounds, defaultRound = 1) {
   const setupContainer = document.createElement('div');
   setupContainer.classList.add('game-setup');
 
@@ -38,7 +60,7 @@ function createGameSetup() {
   howManyRounds.textContent = 'Select how many rounds that you would like to play, then click Start';
   setupContainer.appendChild(howManyRounds);
   
-  const roundSelectContainer = createRoundSelector(10, 5);
+  const roundSelectContainer = createRoundSelector(numberOfRounds, defaultRound);
   setupContainer.appendChild(roundSelectContainer);
   
   const start = document.createElement('button');
@@ -103,5 +125,5 @@ function createGameStatus(numberOfRounds) {
 }
 
 const gameContainer = document.querySelector('.game-container');
-gameContainer.appendChild(createGameSetup());
+// gameContainer.appendChild(createGameSetup());
 // gameContainer.appendChild(createGameStatus(10));
