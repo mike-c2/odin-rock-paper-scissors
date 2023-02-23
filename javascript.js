@@ -1,3 +1,31 @@
+function createRoundSelector(numberOfRounds, defaultRound = 1) {
+  const roundSelectContainer = document.createElement('div');
+  
+  const roundSelectLabel = document.createElement('label');
+  roundSelectLabel.setAttribute('for', 'number-rounds');
+  roundSelectLabel.textContent = 'Number of Rounds:';
+  roundSelectContainer.appendChild(roundSelectLabel);
+
+  const selectRoundsToPlay = document.createElement('select');
+  selectRoundsToPlay.setAttribute('name', 'Number of Rounds');
+  selectRoundsToPlay.setAttribute('id', 'number-rounds');
+  roundSelectContainer.appendChild(selectRoundsToPlay);
+  
+  for(let i = 1; i <= numberOfRounds; i++) {
+    const option = document.createElement('option');
+    option.setAttribute('value', i.toString());
+    option.textContent = i.toString();
+
+    if(i === defaultRound) {
+      option.selected = true;
+    }
+
+    selectRoundsToPlay.appendChild(option);
+  }
+  
+  return roundSelectContainer;
+}
+
 function createGameSetup() {
   const setupContainer = document.createElement('div');
   setupContainer.classList.add('game-setup');
@@ -10,26 +38,8 @@ function createGameSetup() {
   howManyRounds.textContent = 'Select how many rounds that you would like to play, then click Start';
   setupContainer.appendChild(howManyRounds);
   
-  const roundSelectContainer = document.createElement('div');
+  const roundSelectContainer = createRoundSelector(10, 5);
   setupContainer.appendChild(roundSelectContainer);
-  
-  const roundSelectLabel = document.createElement('label');
-  roundSelectLabel.setAttribute('for', 'number-rounds');
-  roundSelectLabel.textContent = 'Number of Rounds:';
-  roundSelectContainer.appendChild(roundSelectLabel);
-
-  const numberOfRounds = document.createElement('select');
-  numberOfRounds.setAttribute('name', 'Number of Rounds');
-  numberOfRounds.setAttribute('id', 'number-rounds');
-  roundSelectContainer.appendChild(numberOfRounds);
-  
-  for(let i = 1; i <= 10; i++) {
-    const option = document.createElement('option');
-    option.setAttribute('value', i.toString());
-    option.textContent = i.toString();
-    if(i === 5) option.selected = true;
-    numberOfRounds.appendChild(option);
-  }
   
   const start = document.createElement('button');
   start.setAttribute('type', 'button');
@@ -93,4 +103,5 @@ function createGameStatus(numberOfRounds) {
 }
 
 const gameContainer = document.querySelector('.game-container');
-gameContainer.appendChild(createGameStatus(10));
+gameContainer.appendChild(createGameSetup());
+// gameContainer.appendChild(createGameStatus(10));
