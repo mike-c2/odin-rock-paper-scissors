@@ -85,12 +85,6 @@ function createGameStatus(numberOfRounds) {
   const lastRound = document.createElement('span');
   lastRound.setAttribute('id', 'last-round');
   
-  if(!isNaN(numberOfRounds)) {
-    lastRound.textContent = numberOfRounds.toString();
-  } else {
-    lastRound.textContent = '1';
-  }
-  
   roundInfo.appendChild(new Text('Round '));
   roundInfo.appendChild(currentRound);
   roundInfo.appendChild(new Text(' of '));
