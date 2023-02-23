@@ -1,13 +1,13 @@
 function createRoundSelector(numberOfRounds, defaultRound = 1) {
   if(isNaN(numberOfRounds) || numberOfRounds < 1) {
-    let errorMessage =`numberOfRounds value ${numberOfRounds} is not valid,`;
+    let errorMessage =`numberOfRounds value ${numberOfRounds} is not valid, `;
     errorMessage += 'it will be set to 1 instead.';
     console.error(errorMessage);
     numberOfRounds = 1;
   }
   
   if(isNaN(defaultRound) || defaultRound < 1) {
-    let errorMessage =`defaultRound value ${defaultRound} is not valid,`;
+    let errorMessage =`defaultRound value ${defaultRound} is not valid, `;
     errorMessage += 'it will be set to 1 instead.';
     console.error(errorMessage);
     defaultRound = 1;
@@ -15,7 +15,7 @@ function createRoundSelector(numberOfRounds, defaultRound = 1) {
   
   if(defaultRound > numberOfRounds) {
     let warningMessage=`defaultRound value ${defaultRound} is greater than `;
-    warningMessage += `the numberOfRounds value ${numberOfRounds}. The`;
+    warningMessage += `the numberOfRounds value ${numberOfRounds}. The `;
     warningMessage += `defaultRound will be set to ${numberOfRounds} instead.`
     console.warn(warningMessage);
     defaultRound = numberOfRounds;
