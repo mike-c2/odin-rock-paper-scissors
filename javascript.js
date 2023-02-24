@@ -285,6 +285,18 @@ function getComputerChoice() {
   return choice;
 }
 
+function chooseRock() {
+  const computerChoice = getComputerChoice();
+}
+
+function choosePaper() {
+  const computerChoice = getComputerChoice();
+}
+
+function chooseScissors() {
+  const computerChoice = getComputerChoice();
+}
+
 initializeGame();
 // const gameContainer = document.querySelector('.game-container');
 // gameContainer.appendChild(createGameSetup(10, 5));
