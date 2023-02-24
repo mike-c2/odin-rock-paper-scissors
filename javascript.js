@@ -293,20 +293,28 @@ function initializeGame() {
 }
 
 function getComputerChoice() {
-  let option;  
+  const computerChoiceContainer = document.querySelector('.computer-choice');
+  let choice;  
+  let option;
   
   switch(Math.floor(Math.random() * 3)) {
     case 0:
-      option = ROCK;
+      choice = ROCK;
+      option = createRockOptionNoHover();
       break;
     case 1:
-      option = PAPER;
+      choice = PAPER;
+      option = createPaperOptionNoHover();
       break;
     default:
-      option = SCISSORS;
+      choice = SCISSORS;
+      option = createScissorsOptionNoHover();
   }
+  
+  removeAllChildNodes(computerChoiceContainer);
+  computerChoiceContainer.appendChild(option);
 
-  return option;
+  return choice;
 }
 
 function chooseRock() {
