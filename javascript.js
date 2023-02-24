@@ -344,18 +344,39 @@ function setGameInfoText(newText) {
   gameInfoText.textContent = newText;
 }
 
+function incrementPlayerPoints() {
+  const points = document.getElementById('player-points');
+  const newValue = Number(points.textContent) + 1;
+  points.textContent = newValue.toString();
+}
+
+function incrementComputerPoints() {
+  const points = document.getElementById('computer-points');
+  const newValue = Number(points.textContent) + 1;
+  points.textContent = newValue.toString();
+}
+
+function incrementTiePoints() {
+  const points = document.getElementById('tie-points');
+  const newValue = Number(points.textContent) + 1;
+  points.textContent = newValue.toString();
+}
+
 function chooseRock() {
   const computerChoice = getComputerChoice();
   
   switch(computerChoice) {
     case ROCK:
       setGameInfoText(`It's a Tie, you both played ${ROCK}`);
+      incrementTiePoints();
       break;
     case PAPER:
       setGameInfoText(`You Lose, ${ROCK} is covered by ${PAPER}`);
+      incrementComputerPoints();
       break;
     case SCISSORS:
       setGameInfoText(`You Win! ${ROCK} breaks ${SCISSORS}`);
+      incrementPlayerPoints();
       break;
   }
 }
@@ -366,12 +387,15 @@ function choosePaper() {
   switch(computerChoice) {
     case ROCK:
       setGameInfoText(`You Win! ${PAPER} covers ${ROCK}`);
+      incrementPlayerPoints();
       break;
     case PAPER:
       setGameInfoText(`It's a Tie, you both played ${PAPER}`);
+      incrementTiePoints();
       break;
     case SCISSORS:
       setGameInfoText(`You Lose, ${PAPER} is cut by ${SCISSORS}`);
+      incrementComputerPoints();
       break;
   }
 }
@@ -382,12 +406,15 @@ function chooseScissors() {
   switch(computerChoice) {
     case ROCK:
       setGameInfoText(`You Lose, ${SCISSORS} is broken by ${ROCK}`);
+      incrementComputerPoints();
       break;
     case PAPER:
       setGameInfoText(`You Win! ${SCISSORS} cuts ${PAPER}`);
+      incrementPlayerPoints();
       break;
     case SCISSORS:
       setGameInfoText(`It's a Tie, you both played ${SCISSORS}`);
+      incrementTiePoints();
       break;
   }
 }
