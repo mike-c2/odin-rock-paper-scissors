@@ -4,27 +4,28 @@ function removeAllChildNodes(parent) {
   }  
 }
 
-function createRoundSelector(maxNumberOfRounds, defaultRound = 1) {
+function createRoundSelector(maxNumberOfRounds, defaultNumberOfRounds = 1) {
   if(isNaN(maxNumberOfRounds) || maxNumberOfRounds < 1) {
-    let errorMessage =`numberOfRounds value ${maxNumberOfRounds} is not valid, `;
-    errorMessage += 'it will be set to 1 instead.';
+    let errorMessage = `numberOfRounds value ${maxNumberOfRounds}`;
+    errorMessage += ' is not valid, it will be set to 1 instead.';
     console.error(errorMessage);
     maxNumberOfRounds = 1;
   }
   
-  if(isNaN(defaultRound) || defaultRound < 1) {
-    let errorMessage =`defaultRound value ${defaultRound} is not valid, `;
-    errorMessage += 'it will be set to 1 instead.';
+  if(isNaN(defaultNumberOfRounds) || defaultNumberOfRounds < 1) {
+    let errorMessage = `defaultRound value ${defaultNumberOfRounds}`;
+    errorMessage += ' is not valid, it will be set to 1 instead.';
     console.error(errorMessage);
-    defaultRound = 1;
+    defaultNumberOfRounds = 1;
   }
   
-  if(defaultRound > maxNumberOfRounds) {
-    let warningMessage=`defaultRound value ${defaultRound} is greater than `;
-    warningMessage += `the numberOfRounds value ${maxNumberOfRounds}. The `;
-    warningMessage += `defaultRound will be set to ${maxNumberOfRounds} instead.`
+  if(defaultNumberOfRounds > maxNumberOfRounds) {
+    let warningMessage = `defaultRound value ${defaultNumberOfRounds} is`;
+    warningMessage += ' greater than the numberOfRounds value';
+    warningMessage += ` ${maxNumberOfRounds}. The defaultRound will be set to`;
+    warningMessage += ` ${maxNumberOfRounds} instead.`;
     console.warn(warningMessage);
-    defaultRound = maxNumberOfRounds;
+    defaultNumberOfRounds = maxNumberOfRounds;
   }
 
   const roundSelectContainer = document.createElement('div');
@@ -44,7 +45,7 @@ function createRoundSelector(maxNumberOfRounds, defaultRound = 1) {
     option.setAttribute('value', i.toString());
     option.textContent = i.toString();
 
-    if(i === defaultRound) {
+    if(i === defaultNumberOfRounds) {
       option.selected = true;
     }
 
