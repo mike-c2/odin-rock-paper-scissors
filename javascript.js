@@ -269,20 +269,20 @@ function initializeGame() {
 }
 
 function getComputerChoice() {
-  let choice;  
+  let option;  
   
   switch(Math.floor(Math.random() * 3)) {
     case 0:
-      choice = ROCK;
+      option = ROCK;
       break;
     case 1:
-      choice = PAPER;
+      option = PAPER;
       break;
     default:
-      choice = SCISSORS;
+      option = SCISSORS;
   }
 
-  return choice;
+  return option;
 }
 
 function chooseRock() {
