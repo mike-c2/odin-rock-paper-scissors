@@ -420,8 +420,3 @@ function chooseScissors() {
 }
 
 initializeGame();
-// const gameContainer = document.querySelector('.game-container');
-// gameContainer.appendChild(createGameSetup(10, 5));
-// gameContainer.appendChild(createGameStatus(10));
-// gameContainer.appendChild(createGameBoard());
-// gameContainer.appendChild(createActiveGame(10));
