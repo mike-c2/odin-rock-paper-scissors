@@ -55,7 +55,7 @@ function createRoundSelector(maxNumberOfRounds, defaultNumberOfRounds = 1) {
   return roundSelectContainer;
 }
 
-function createGameSetup(maxNumberOfRounds, defaultRound = 1) {
+function createGameSetup(maxNumberOfRounds, defaulNumberOfRounds = 1) {
   const setupContainer = document.createElement('div');
   setupContainer.classList.add('game-setup');
 
@@ -64,10 +64,13 @@ function createGameSetup(maxNumberOfRounds, defaultRound = 1) {
   setupContainer.appendChild(welcome);
   
   const howManyRounds = document.createElement('p');
-  howManyRounds.textContent = 'Select how many rounds that you would like to play, then click Start';
+  const textMessage = 'Select how many rounds that you would like to play,';
+  textMessage += ' then click Start';
+  howManyRounds.textContent = textMessage;
   setupContainer.appendChild(howManyRounds);
   
-  const roundSelectContainer = createRoundSelector(maxNumberOfRounds, defaultRound);
+  const roundSelectContainer = createRoundSelector(maxNumberOfRounds,
+    defaulNumberOfRounds);
   setupContainer.appendChild(roundSelectContainer);
   
   const start = document.createElement('button');
