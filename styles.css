@@ -42,7 +42,8 @@ select {
   font-size: 1.4rem;
 }
 
-#start {
+#start,
+#reset {
   margin-top: 0.5em;
   padding: 0.3em 1em;
   display: flex;
@@ -55,7 +56,8 @@ select {
   background-color:rgb(29, 141, 29);
 }
 
-#start:hover {
+#start:hover,
+#reset:hover {
   cursor: pointer;
   border-color: rgb(29, 141, 29);
   color:rgb(29, 141, 29);
@@ -129,7 +131,7 @@ select {
 
 .game-info {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 0.5em;
   font-size: 2rem;
 }

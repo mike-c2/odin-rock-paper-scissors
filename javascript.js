@@ -218,6 +218,12 @@ function createActiveGame(numberOfRounds) {
   const gameInfoText = document.createElement('p');
   gameInfoText.textContent = 'Click on either the Rock, Paper, or Scissors';
   gameInfo.appendChild(gameInfoText);
+  
+  const reset = document.createElement('button');
+  reset.setAttribute('type', 'button');
+  reset.setAttribute('id', 'reset');
+  reset.textContent = 'Reset';
+  gameInfo.appendChild(reset);
 
   return activeGame;
 }
