@@ -1,3 +1,9 @@
+function removeAllChildNodes(parent) {
+  while(parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }  
+}
+
 function createRoundSelector(numberOfRounds, defaultRound = 1) {
   if(isNaN(numberOfRounds) || numberOfRounds < 1) {
     let errorMessage =`numberOfRounds value ${numberOfRounds} is not valid, `;
