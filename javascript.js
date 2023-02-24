@@ -339,6 +339,11 @@ function getComputerChoice() {
   return choice;
 }
 
+function setGameInfoText(newText) {
+  const gameInfoText = document.getElementById('game-info-text');
+  gameInfoText.textContent = newText;
+}
+
 function chooseRock() {
   const computerChoice = getComputerChoice();
 }
