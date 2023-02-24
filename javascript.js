@@ -268,6 +268,23 @@ function initializeGame() {
   gameContainer.appendChild(gameSetup);
 }
 
+function getComputerChoice() {
+  let choice;  
+  
+  switch(Math.floor(Math.random() * 3)) {
+    case 0:
+      choice = ROCK;
+      break;
+    case 1:
+      choice = PAPER;
+      break;
+    default:
+      choice = SCISSORS;
+  }
+
+  return choice;
+}
+
 initializeGame();
 // const gameContainer = document.querySelector('.game-container');
 // gameContainer.appendChild(createGameSetup(10, 5));
