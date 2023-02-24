@@ -277,6 +277,7 @@ function createActiveGame(numberOfRounds) {
   activeGame.appendChild(gameInfo);
   
   const gameInfoText = document.createElement('p');
+  gameInfoText.setAttribute('id', 'game-info-text');
   gameInfoText.textContent = 'Click on either the Rock, Paper, or Scissors';
   gameInfo.appendChild(gameInfoText);
   
