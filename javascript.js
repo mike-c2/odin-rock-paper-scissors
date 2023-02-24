@@ -346,14 +346,50 @@ function setGameInfoText(newText) {
 
 function chooseRock() {
   const computerChoice = getComputerChoice();
+  
+  switch(computerChoice) {
+    case ROCK:
+      setGameInfoText(`It's a Tie, you both played ${ROCK}`);
+      break;
+    case PAPER:
+      setGameInfoText(`You Lose, ${ROCK} is covered by ${PAPER}`);
+      break;
+    case SCISSORS:
+      setGameInfoText(`You Win! ${ROCK} breaks ${SCISSORS}`);
+      break;
+  }
 }
 
 function choosePaper() {
   const computerChoice = getComputerChoice();
+  
+  switch(computerChoice) {
+    case ROCK:
+      setGameInfoText(`You Win! ${PAPER} covers ${ROCK}`);
+      break;
+    case PAPER:
+      setGameInfoText(`It's a Tie, you both played ${PAPER}`);
+      break;
+    case SCISSORS:
+      setGameInfoText(`You Lose, ${PAPER} is cut by ${SCISSORS}`);
+      break;
+  }
 }
 
 function chooseScissors() {
   const computerChoice = getComputerChoice();
+
+  switch(computerChoice) {
+    case ROCK:
+      setGameInfoText(`You Lose, ${SCISSORS} is broken by ${ROCK}`);
+      break;
+    case PAPER:
+      setGameInfoText(`You Win! ${SCISSORS} cuts ${PAPER}`);
+      break;
+    case SCISSORS:
+      setGameInfoText(`It's a Tie, you both played ${SCISSORS}`);
+      break;
+  }
 }
 
 initializeGame();
