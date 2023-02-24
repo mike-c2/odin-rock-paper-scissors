@@ -84,6 +84,7 @@ function createGameStatus(numberOfRounds) {
 
   const lastRound = document.createElement('span');
   lastRound.setAttribute('id', 'last-round');
+  lastRound.textContent = numberOfRounds.toString();
   
   roundInfo.appendChild(new Text('Round '));
   roundInfo.appendChild(currentRound);
@@ -116,6 +117,56 @@ function createGameStatus(numberOfRounds) {
   gameStatus.appendChild(tiePointsText);
   
   return gameStatus;
+}
+
+function createRockOption() {
+  const rockOption = document.createElement('div');
+  rockOption.classList.add('rock-option');
+  
+  const rockImage = document.createElement('img');
+  rockImage.classList.add('rock-image');
+  rockImage.setAttribute('src', 'img/pexels-pixabay-161702.jpg');
+  rockImage.setAttribute('alt', 'Tilt shift lens photography of stone');
+  rockOption.appendChild(rockImage); 
+
+  return rockOption;
+}
+
+function createPaperOption() {
+  const paperOption = document.createElement('div');
+  paperOption.classList.add('paper-option');
+  
+  const paperImage = document.createElement('img');
+  paperImage.classList.add('paper-image');
+  paperImage.setAttribute('src', 'img/pexels-karolina-grabowska-4207708.jpg');
+  paperImage.setAttribute('alt', 'Empty paper sheet on wooden table');
+  paperOption.appendChild(paperImage); 
+
+  return paperOption;
+}
+
+function createScissorsOption() {
+  const scissorsOption = document.createElement('div');
+  scissorsOption.classList.add('paper-option');
+  
+  const scissorsImage = document.createElement('img');
+  scissorsImage.classList.add('scissors-image');
+  scissorsImage.setAttribute('src', 'img/pexels-mike-b-211710.jpg');
+  scissorsImage.setAttribute('alt', 'Red scissors near green leaf');
+  scissorsOption.appendChild(scissorsImage); 
+
+  return scissorsOption;
+}
+
+function createUnknownOption() {
+  const unknownOption = document.createElement('div');
+  unknownOption.classList.add('unknown-option');
+  
+  const unknownText = document.createElement('p');
+  unknownText.textContent = '?";'
+  unknownOption.appendChild(unknownText);
+  
+  return unknownOption;
 }
 
 const gameContainer = document.querySelector('.game-container');
