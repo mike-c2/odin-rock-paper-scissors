@@ -243,9 +243,6 @@ function createActiveGame(numberOfRounds) {
 }
 
 function startGame() {
-  const maxNumberOfRounds = 10;
-  const defaultNumberOfRounds = 5;
-  
   const selectRoundsToPlay = document.getElementById('number-rounds');
   const numberOfRounds = selectRoundsToPlay.value;
   
@@ -257,6 +254,9 @@ function startGame() {
 }
 
 function initializeGame() {
+  const maxNumberOfRounds = 10;
+  const defaultNumberOfRounds = 5;
+  
   const gameContainer = document.querySelector('.game-container');
   removeAllChildNodes(gameContainer);
   
