@@ -64,7 +64,7 @@ function createGameSetup(maxNumberOfRounds, defaulNumberOfRounds = 1) {
   setupContainer.appendChild(welcome);
   
   const howManyRounds = document.createElement('p');
-  const textMessage = 'Select how many rounds that you would like to play,';
+  let textMessage = 'Select how many rounds that you would like to play,';
   textMessage += ' then click Start';
   howManyRounds.textContent = textMessage;
   setupContainer.appendChild(howManyRounds);
