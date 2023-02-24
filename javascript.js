@@ -4,12 +4,12 @@ function removeAllChildNodes(parent) {
   }  
 }
 
-function createRoundSelector(numberOfRounds, defaultRound = 1) {
-  if(isNaN(numberOfRounds) || numberOfRounds < 1) {
-    let errorMessage =`numberOfRounds value ${numberOfRounds} is not valid, `;
+function createRoundSelector(maxNumberOfRounds, defaultRound = 1) {
+  if(isNaN(maxNumberOfRounds) || maxNumberOfRounds < 1) {
+    let errorMessage =`numberOfRounds value ${maxNumberOfRounds} is not valid, `;
     errorMessage += 'it will be set to 1 instead.';
     console.error(errorMessage);
-    numberOfRounds = 1;
+    maxNumberOfRounds = 1;
   }
   
   if(isNaN(defaultRound) || defaultRound < 1) {
@@ -19,12 +19,12 @@ function createRoundSelector(numberOfRounds, defaultRound = 1) {
     defaultRound = 1;
   }
   
-  if(defaultRound > numberOfRounds) {
+  if(defaultRound > maxNumberOfRounds) {
     let warningMessage=`defaultRound value ${defaultRound} is greater than `;
-    warningMessage += `the numberOfRounds value ${numberOfRounds}. The `;
-    warningMessage += `defaultRound will be set to ${numberOfRounds} instead.`
+    warningMessage += `the numberOfRounds value ${maxNumberOfRounds}. The `;
+    warningMessage += `defaultRound will be set to ${maxNumberOfRounds} instead.`
     console.warn(warningMessage);
-    defaultRound = numberOfRounds;
+    defaultRound = maxNumberOfRounds;
   }
 
   const roundSelectContainer = document.createElement('div');
@@ -39,7 +39,7 @@ function createRoundSelector(numberOfRounds, defaultRound = 1) {
   selectRoundsToPlay.setAttribute('id', 'number-rounds');
   roundSelectContainer.appendChild(selectRoundsToPlay);
   
-  for(let i = 1; i <= numberOfRounds; i++) {
+  for(let i = 1; i <= maxNumberOfRounds; i++) {
     const option = document.createElement('option');
     option.setAttribute('value', i.toString());
     option.textContent = i.toString();
@@ -54,7 +54,7 @@ function createRoundSelector(numberOfRounds, defaultRound = 1) {
   return roundSelectContainer;
 }
 
-function createGameSetup(numberOfRounds, defaultRound = 1) {
+function createGameSetup(maxNumberOfRounds, defaultRound = 1) {
   const setupContainer = document.createElement('div');
   setupContainer.classList.add('game-setup');
 
@@ -66,7 +66,7 @@ function createGameSetup(numberOfRounds, defaultRound = 1) {
   howManyRounds.textContent = 'Select how many rounds that you would like to play, then click Start';
   setupContainer.appendChild(howManyRounds);
   
-  const roundSelectContainer = createRoundSelector(numberOfRounds, defaultRound);
+  const roundSelectContainer = createRoundSelector(maxNumberOfRounds, defaultRound);
   setupContainer.appendChild(roundSelectContainer);
   
   const start = document.createElement('button');
