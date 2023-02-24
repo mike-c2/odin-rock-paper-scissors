@@ -137,7 +137,6 @@ function createGameStatus(numberOfRounds) {
 
 function createRockOption() {
   const rockOption = document.createElement('div');
-  rockOption.classList.add('rock-option');
   
   const rockImage = document.createElement('img');
   rockImage.classList.add('rock-image');
@@ -148,9 +147,15 @@ function createRockOption() {
   return rockOption;
 }
 
+function createRockOptionHover() {
+  const rockOption = createRockOption();
+  rockOption.classList.add('rock-option');
+
+  return rockOption;
+}
+
 function createRockOptionNoHover() {
   const rockOption = createRockOption();
-  rockOption.classList.remove('rock-option');
   rockOption.classList.add('rock-option-no-hover');
   
   return rockOption;
@@ -158,7 +163,6 @@ function createRockOptionNoHover() {
 
 function createPaperOption() {
   const paperOption = document.createElement('div');
-  paperOption.classList.add('paper-option');
   
   const paperImage = document.createElement('img');
   paperImage.classList.add('paper-image');
@@ -169,9 +173,15 @@ function createPaperOption() {
   return paperOption;
 }
 
+function createPaperOptionHover() {
+  const paperOption = createPaperOption();
+  paperOption.classList.add('paper-option');
+
+  return paperOption;
+}
+
 function createPaperOptionNoHover() {
   const paperOption = createPaperOption();
-  paperOption.classList.remove('paper-option');
   paperOption.classList.add('paper-option-no-hover');
   
   return paperOption;
@@ -179,7 +189,6 @@ function createPaperOptionNoHover() {
 
 function createScissorsOption() {
   const scissorsOption = document.createElement('div');
-  scissorsOption.classList.add('scissors-option');
   
   const scissorsImage = document.createElement('img');
   scissorsImage.classList.add('scissors-image');
@@ -190,9 +199,15 @@ function createScissorsOption() {
   return scissorsOption;
 }
 
+function createScissorsOptionHover() {
+  const scissorsOption = createScissorsOption();
+  scissorsOption.classList.add('scissors-option');
+  
+  return scissorsOption;
+}
+
 function createScissorsOptionNoHover() {
   const scissorsOption = createScissorsOption();
-  scissorsOption.classList.remove('scissors-option');
   scissorsOption.classList.add('scissors-option-no-hover');
   
   return scissorsOption;
@@ -217,13 +232,13 @@ function createGameBoard() {
   playerOptions.classList.add('player-options');
   gameBoard.appendChild(playerOptions);
   
-  const rockOption = createRockOption();
+  const rockOption = createRockOptionHover();
   playerOptions.appendChild(rockOption);
 
-  const paperOption = createPaperOption();
+  const paperOption = createPaperOptionHover();
   playerOptions.appendChild(paperOption);
 
-  const scissorsOption = createScissorsOption();
+  const scissorsOption = createScissorsOptionHover();
   playerOptions.appendChild(scissorsOption);
   
   const versus = document.createElement('p');
