@@ -199,10 +199,31 @@ function createGameBoard() {
   computerChoice.appendChild(unknownOption);
   
   return gameBoard;
+}
 
+function createActiveGame(numberOfRounds) {
+  const activeGame = document.createElement('div');
+  activeGame.classList.add('active-game');
+
+  const gameStatus = createGameStatus(numberOfRounds);
+  activeGame.appendChild(gameStatus);
+
+  const gameBoard = createGameBoard();
+  activeGame.appendChild(gameBoard);
+  
+  const gameInfo = document.createElement('div');
+  gameInfo.classList.add('game-info');
+  activeGame.appendChild(gameInfo);
+  
+  const gameInfoText = document.createElement('p');
+  gameInfoText.textContent = 'Click on either the Rock, Paper, or Scissors';
+  gameInfo.appendChild(gameInfoText);
+
+  return activeGame;
 }
 
 const gameContainer = document.querySelector('.game-container');
 // gameContainer.appendChild(createGameSetup(10, 5));
 // gameContainer.appendChild(createGameStatus(10));
-gameContainer.appendChild(createGameBoard());
+// gameContainer.appendChild(createGameBoard());
+gameContainer.appendChild(createActiveGame(10));
