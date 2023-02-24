@@ -233,7 +233,7 @@ function createActiveGame(numberOfRounds) {
   reset.textContent = 'Reset';
   gameInfo.appendChild(reset);
   
-  reset.addEventListener('click', resetGame);
+  reset.addEventListener('click', initializeGame);
 
   return activeGame;
 }
@@ -249,7 +249,7 @@ function startGame() {
   gameContainer.appendChild(activeGame);
 }
 
-function resetGame() {
+function initializeGame() {
   const gameContainer = document.querySelector('.game-container');
   removeAllChildNodes(gameContainer);
   
@@ -257,7 +257,7 @@ function resetGame() {
   gameContainer.appendChild(gameSetup);
 }
 
-resetGame();
+initializeGame();
 // const gameContainer = document.querySelector('.game-container');
 // gameContainer.appendChild(createGameSetup(10, 5));
 // gameContainer.appendChild(createGameStatus(10));
