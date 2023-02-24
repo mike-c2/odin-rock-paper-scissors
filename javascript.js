@@ -163,7 +163,7 @@ function createUnknownOption() {
   unknownOption.classList.add('unknown-option');
   
   const unknownText = document.createElement('p');
-  unknownText.textContent = '?";'
+  unknownText.textContent = '?';
   unknownOption.appendChild(unknownText);
   
   return unknownOption;
