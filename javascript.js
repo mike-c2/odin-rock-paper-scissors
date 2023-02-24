@@ -91,33 +91,33 @@ function createGameStatus(numberOfRounds) {
   roundInfo.appendChild(lastRound);
   gameStatus.appendChild(roundInfo);
   
-  const playerScore = document.createElement('p');
+  const playerPointsText = document.createElement('p');
   const playerPoints = document.createElement('span');
   playerPoints.setAttribute('id', 'player-points');
   playerPoints.textContent = '0';
-  playerScore.appendChild(new Text('Player: '));
-  playerScore.appendChild(playerPoints);
-  gameStatus.appendChild(playerScore);
+  playerPointsText.appendChild(new Text('Player: '));
+  playerPointsText.appendChild(playerPoints);
+  gameStatus.appendChild(playerPointsText);
   
-  const computerScore = document.createElement('p');
+  const computerPointsText = document.createElement('p');
   const computerPoints = document.createElement('span');
   computerPoints.setAttribute('id', 'computer-points');
   computerPoints.textContent = '0';
-  computerScore.appendChild(new Text('Computer: '));
-  computerScore.appendChild(computerPoints);
-  gameStatus.appendChild(computerScore);
+  computerPointsText.appendChild(new Text('Computer: '));
+  computerPointsText.appendChild(computerPoints);
+  gameStatus.appendChild(computerPointsText);
   
-  const tieScore = document.createElement('p');
+  const tiePointsText = document.createElement('p');
   const tiePoints = document.createElement('span');
   tiePoints.setAttribute('id', 'tie-points');
   tiePoints.textContent = '0';
-  tieScore.appendChild(new Text('Ties: '));
-  tieScore.appendChild(tiePoints);
-  gameStatus.appendChild(tieScore);
+  tiePointsText.appendChild(new Text('Ties: '));
+  tiePointsText.appendChild(tiePoints);
+  gameStatus.appendChild(tiePointsText);
   
   return gameStatus;
 }
 
 const gameContainer = document.querySelector('.game-container');
-// gameContainer.appendChild(createGameSetup());
-// gameContainer.appendChild(createGameStatus(10));
+// gameContainer.appendChild(createGameSetup(10, 5));
+gameContainer.appendChild(createGameStatus(10));
