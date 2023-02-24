@@ -169,6 +169,40 @@ function createUnknownOption() {
   return unknownOption;
 }
 
+function createGameBoard() {
+  const gameBoard = document.createElement('div');
+  gameBoard.classList.add('game-board');
+  
+  const playerOptions = document.createElement('div');
+  playerOptions.classList.add('player-options');
+  gameBoard.appendChild(playerOptions);
+  
+  const rockOption = createRockOption();
+  playerOptions.appendChild(rockOption);
+
+  const paperOption = createPaperOption();
+  playerOptions.appendChild(paperOption);
+
+  const scissorsOption = createScissorsOption();
+  playerOptions.appendChild(scissorsOption);
+  
+  const versus = document.createElement('p');
+  versus.classList.add('versus');
+  versus.textContent = 'VS';
+  gameBoard.appendChild(versus);
+  
+  const computerChoice = document.createElement('div');
+  computerChoice.classList.add('computer-choice');
+  gameBoard.appendChild(computerChoice);
+
+  const unknownOption = createUnknownOption();
+  computerChoice.appendChild(unknownOption);
+  
+  return gameBoard;
+
+}
+
 const gameContainer = document.querySelector('.game-container');
 // gameContainer.appendChild(createGameSetup(10, 5));
-gameContainer.appendChild(createGameStatus(10));
+// gameContainer.appendChild(createGameStatus(10));
+gameContainer.appendChild(createGameBoard());
