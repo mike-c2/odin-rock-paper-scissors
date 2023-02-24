@@ -75,6 +75,8 @@ function createGameSetup(numberOfRounds, defaultRound = 1) {
   start.textContent = 'Start';
   setupContainer.appendChild(start);
   
+  start.addEventListener('click', startGame);
+  
   return setupContainer;
 }
 
@@ -234,8 +236,19 @@ function createActiveGame(numberOfRounds) {
   return activeGame;
 }
 
+function startGame() {
+  const selectRoundsToPlay = document.getElementById('number-rounds');
+  const numberOfRounds = selectRoundsToPlay.value;
+  
+  const gameContainer = document.querySelector('.game-container');
+  removeAllChildNodes(gameContainer);
+  
+  const activeGame = createActiveGame(numberOfRounds);
+  gameContainer.appendChild(activeGame);
+}
+
 const gameContainer = document.querySelector('.game-container');
-// gameContainer.appendChild(createGameSetup(10, 5));
+gameContainer.appendChild(createGameSetup(10, 5));
 // gameContainer.appendChild(createGameStatus(10));
 // gameContainer.appendChild(createGameBoard());
-gameContainer.appendChild(createActiveGame(10));
+// gameContainer.appendChild(createActiveGame(10));
