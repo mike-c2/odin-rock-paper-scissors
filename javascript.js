@@ -1,3 +1,7 @@
+const ROCK = 'Rock';
+const PAPER = 'Paper';
+const SCISSORS = 'Scissors'
+
 function removeAllChildNodes(parent) {
   while(parent.firstChild) {
     parent.removeChild(parent.firstChild);
