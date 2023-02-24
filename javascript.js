@@ -232,6 +232,8 @@ function createActiveGame(numberOfRounds) {
   reset.setAttribute('id', 'reset');
   reset.textContent = 'Reset';
   gameInfo.appendChild(reset);
+  
+  reset.addEventListener('click', resetGame);
 
   return activeGame;
 }
@@ -247,8 +249,17 @@ function startGame() {
   gameContainer.appendChild(activeGame);
 }
 
-const gameContainer = document.querySelector('.game-container');
-gameContainer.appendChild(createGameSetup(10, 5));
+function resetGame() {
+  const gameContainer = document.querySelector('.game-container');
+  removeAllChildNodes(gameContainer);
+  
+  const gameSetup = createGameSetup(10, 5);
+  gameContainer.appendChild(gameSetup);
+}
+
+resetGame();
+// const gameContainer = document.querySelector('.game-container');
+// gameContainer.appendChild(createGameSetup(10, 5));
 // gameContainer.appendChild(createGameStatus(10));
 // gameContainer.appendChild(createGameBoard());
 // gameContainer.appendChild(createActiveGame(10));
