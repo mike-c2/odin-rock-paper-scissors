@@ -150,6 +150,8 @@ function createRockOption() {
 function createRockOptionHover() {
   const rockOption = createRockOption();
   rockOption.classList.add('rock-option');
+  
+  rockOption.addEventListener('click', chooseRock);
 
   return rockOption;
 }
@@ -177,6 +179,8 @@ function createPaperOptionHover() {
   const paperOption = createPaperOption();
   paperOption.classList.add('paper-option');
 
+  paperOption.addEventListener('click', choosePaper);
+
   return paperOption;
 }
 
@@ -202,6 +206,8 @@ function createScissorsOption() {
 function createScissorsOptionHover() {
   const scissorsOption = createScissorsOption();
   scissorsOption.classList.add('scissors-option');
+  
+  scissorsOption.addEventListener('click', chooseScissors);
   
   return scissorsOption;
 }
