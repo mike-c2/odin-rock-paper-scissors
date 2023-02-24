@@ -148,6 +148,14 @@ function createRockOption() {
   return rockOption;
 }
 
+function createRockOptionNoHover() {
+  const rockOption = createRockOption();
+  rockOption.classList.remove('rock-option');
+  rockOption.classList.add('rock-option-no-hover');
+  
+  return rockOption;
+}
+
 function createPaperOption() {
   const paperOption = document.createElement('div');
   paperOption.classList.add('paper-option');
@@ -161,9 +169,17 @@ function createPaperOption() {
   return paperOption;
 }
 
+function createPaperOptionNoHover() {
+  const paperOption = createPaperOption();
+  paperOption.classList.remove('paper-option');
+  paperOption.classList.add('paper-option-no-hover');
+  
+  return paperOption;
+}
+
 function createScissorsOption() {
   const scissorsOption = document.createElement('div');
-  scissorsOption.classList.add('paper-option');
+  scissorsOption.classList.add('scissors-option');
   
   const scissorsImage = document.createElement('img');
   scissorsImage.classList.add('scissors-image');
@@ -171,6 +187,14 @@ function createScissorsOption() {
   scissorsImage.setAttribute('alt', 'Red scissors near green leaf');
   scissorsOption.appendChild(scissorsImage); 
 
+  return scissorsOption;
+}
+
+function createScissorsOptionNoHover() {
+  const scissorsOption = createScissorsOption();
+  scissorsOption.classList.remove('scissors-option');
+  scissorsOption.classList.add('scissors-option-no-hover');
+  
   return scissorsOption;
 }
 
