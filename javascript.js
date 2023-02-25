@@ -384,18 +384,15 @@ function endGame() {
   const roundInfo = document.getElementById('round-info');
   removeAllChildNodes(roundInfo);
   
-  const newText = document.createElement('p');
-  roundInfo.appendChild(newText);
-  
   const playerPoints = Number(document.getElementById('player-points').textContent);
   const computerPoints = Number(document.getElementById('computer-points').textContent);
   
   if(playerPoints > computerPoints) {
-    newText.textContent = 'Game Over, You Win!';
+    roundInfo.textContent = 'Game Over, You Win!';
   } else if(playerPoints < computerPoints) {
-    newText.textContent = 'Game Over, You Lose'
+    roundInfo.textContent = 'Game Over, You Lose'
   } else {
-    newText.textContent = "Game Over, it's a Tie";
+    roundInfo.textContent = "Game Over, it's a Tie";
   }
 }
 
