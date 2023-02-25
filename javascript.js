@@ -3,27 +3,27 @@ const PAPER = 'Paper';
 const SCISSORS = 'Scissors'
 
 function removeAllChildNodes(parent) {
-  while(parent.firstChild) {
+  while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
-  }  
+  }
 }
 
 function createRoundSelector(maxNumberOfRounds, defaultNumberOfRounds = 1) {
-  if(isNaN(maxNumberOfRounds) || maxNumberOfRounds < 1) {
+  if (isNaN(maxNumberOfRounds) || maxNumberOfRounds < 1) {
     let errorMessage = `numberOfRounds value ${maxNumberOfRounds}`;
     errorMessage += ' is not valid, it will be set to 1 instead.';
     console.error(errorMessage);
     maxNumberOfRounds = 1;
   }
-  
-  if(isNaN(defaultNumberOfRounds) || defaultNumberOfRounds < 1) {
+
+  if (isNaN(defaultNumberOfRounds) || defaultNumberOfRounds < 1) {
     let errorMessage = `defaultRound value ${defaultNumberOfRounds}`;
     errorMessage += ' is not valid, it will be set to 1 instead.';
     console.error(errorMessage);
     defaultNumberOfRounds = 1;
   }
-  
-  if(defaultNumberOfRounds > maxNumberOfRounds) {
+
+  if (defaultNumberOfRounds > maxNumberOfRounds) {
     let warningMessage = `defaultRound value ${defaultNumberOfRounds} is`;
     warningMessage += ' greater than the numberOfRounds value';
     warningMessage += ` ${maxNumberOfRounds}. The defaultRound will be set to`;
@@ -33,7 +33,7 @@ function createRoundSelector(maxNumberOfRounds, defaultNumberOfRounds = 1) {
   }
 
   const roundSelectContainer = document.createElement('div');
-  
+
   const roundSelectLabel = document.createElement('label');
   roundSelectLabel.setAttribute('for', 'number-rounds');
   roundSelectLabel.textContent = 'Number of Rounds:';
@@ -43,19 +43,19 @@ function createRoundSelector(maxNumberOfRounds, defaultNumberOfRounds = 1) {
   selectRoundsToPlay.setAttribute('name', 'Number of Rounds');
   selectRoundsToPlay.setAttribute('id', 'number-rounds');
   roundSelectContainer.appendChild(selectRoundsToPlay);
-  
-  for(let i = 1; i <= maxNumberOfRounds; i++) {
+
+  for (let i = 1; i <= maxNumberOfRounds; i++) {
     const option = document.createElement('option');
     option.setAttribute('value', i.toString());
     option.textContent = i.toString();
 
-    if(i === defaultNumberOfRounds) {
+    if (i === defaultNumberOfRounds) {
       option.selected = true;
     }
 
     selectRoundsToPlay.appendChild(option);
   }
-  
+
   return roundSelectContainer;
 }
 
@@ -66,32 +66,32 @@ function createGameSetup(maxNumberOfRounds, defaulNumberOfRounds = 1) {
   const welcome = document.createElement('p');
   welcome.textContent = 'Welcome to the Game!';
   setupContainer.appendChild(welcome);
-  
+
   const howManyRounds = document.createElement('p');
   let textMessage = 'Select how many rounds that you would like to play,';
   textMessage += ' then click Start';
   howManyRounds.textContent = textMessage;
   setupContainer.appendChild(howManyRounds);
-  
+
   const roundSelectContainer = createRoundSelector(maxNumberOfRounds,
     defaulNumberOfRounds);
   setupContainer.appendChild(roundSelectContainer);
-  
+
   const start = document.createElement('button');
   start.setAttribute('type', 'button');
   start.setAttribute('id', 'start');
   start.textContent = 'Start';
   setupContainer.appendChild(start);
-  
+
   start.addEventListener('click', startGame);
-  
+
   return setupContainer;
 }
 
 function createGameStatus(numberOfRounds) {
   const gameStatus = document.createElement('div');
   gameStatus.classList.add('game-status');
-  
+
   const roundInfo = document.createElement('p');
 
   const currentRound = document.createElement('span');
@@ -101,13 +101,13 @@ function createGameStatus(numberOfRounds) {
   const lastRound = document.createElement('span');
   lastRound.setAttribute('id', 'last-round');
   lastRound.textContent = numberOfRounds.toString();
-  
+
   roundInfo.appendChild(new Text('Round '));
   roundInfo.appendChild(currentRound);
   roundInfo.appendChild(new Text(' of '));
   roundInfo.appendChild(lastRound);
   gameStatus.appendChild(roundInfo);
-  
+
   const playerPointsText = document.createElement('p');
   const playerPoints = document.createElement('span');
   playerPoints.setAttribute('id', 'player-points');
@@ -115,7 +115,7 @@ function createGameStatus(numberOfRounds) {
   playerPointsText.appendChild(new Text('Player: '));
   playerPointsText.appendChild(playerPoints);
   gameStatus.appendChild(playerPointsText);
-  
+
   const computerPointsText = document.createElement('p');
   const computerPoints = document.createElement('span');
   computerPoints.setAttribute('id', 'computer-points');
@@ -123,7 +123,7 @@ function createGameStatus(numberOfRounds) {
   computerPointsText.appendChild(new Text('Computer: '));
   computerPointsText.appendChild(computerPoints);
   gameStatus.appendChild(computerPointsText);
-  
+
   const tiePointsText = document.createElement('p');
   const tiePoints = document.createElement('span');
   tiePoints.setAttribute('id', 'tie-points');
@@ -131,18 +131,18 @@ function createGameStatus(numberOfRounds) {
   tiePointsText.appendChild(new Text('Ties: '));
   tiePointsText.appendChild(tiePoints);
   gameStatus.appendChild(tiePointsText);
-  
+
   return gameStatus;
 }
 
 function createRockOption() {
   const rockOption = document.createElement('div');
-  
+
   const rockImage = document.createElement('img');
   rockImage.classList.add('rock-image');
   rockImage.setAttribute('src', 'img/pexels-pixabay-161702.jpg');
   rockImage.setAttribute('alt', 'Tilt shift lens photography of stone');
-  rockOption.appendChild(rockImage); 
+  rockOption.appendChild(rockImage);
 
   return rockOption;
 }
@@ -150,7 +150,7 @@ function createRockOption() {
 function createRockOptionHover() {
   const rockOption = createRockOption();
   rockOption.classList.add('rock-option');
-  
+
   rockOption.addEventListener('click', chooseRock);
 
   return rockOption;
@@ -159,18 +159,18 @@ function createRockOptionHover() {
 function createRockOptionNoHover() {
   const rockOption = createRockOption();
   rockOption.classList.add('rock-option-no-hover');
-  
+
   return rockOption;
 }
 
 function createPaperOption() {
   const paperOption = document.createElement('div');
-  
+
   const paperImage = document.createElement('img');
   paperImage.classList.add('paper-image');
   paperImage.setAttribute('src', 'img/pexels-karolina-grabowska-4207708.jpg');
   paperImage.setAttribute('alt', 'Empty paper sheet on wooden table');
-  paperOption.appendChild(paperImage); 
+  paperOption.appendChild(paperImage);
 
   return paperOption;
 }
@@ -187,18 +187,18 @@ function createPaperOptionHover() {
 function createPaperOptionNoHover() {
   const paperOption = createPaperOption();
   paperOption.classList.add('paper-option-no-hover');
-  
+
   return paperOption;
 }
 
 function createScissorsOption() {
   const scissorsOption = document.createElement('div');
-  
+
   const scissorsImage = document.createElement('img');
   scissorsImage.classList.add('scissors-image');
   scissorsImage.setAttribute('src', 'img/pexels-mike-b-211710.jpg');
   scissorsImage.setAttribute('alt', 'Red scissors near green leaf');
-  scissorsOption.appendChild(scissorsImage); 
+  scissorsOption.appendChild(scissorsImage);
 
   return scissorsOption;
 }
@@ -206,38 +206,38 @@ function createScissorsOption() {
 function createScissorsOptionHover() {
   const scissorsOption = createScissorsOption();
   scissorsOption.classList.add('scissors-option');
-  
+
   scissorsOption.addEventListener('click', chooseScissors);
-  
+
   return scissorsOption;
 }
 
 function createScissorsOptionNoHover() {
   const scissorsOption = createScissorsOption();
   scissorsOption.classList.add('scissors-option-no-hover');
-  
+
   return scissorsOption;
 }
 
 function createUnknownOption() {
   const unknownOption = document.createElement('div');
   unknownOption.classList.add('unknown-option');
-  
+
   const unknownText = document.createElement('p');
   unknownText.textContent = '?';
   unknownOption.appendChild(unknownText);
-  
+
   return unknownOption;
 }
 
 function createGameBoard() {
   const gameBoard = document.createElement('div');
   gameBoard.classList.add('game-board');
-  
+
   const playerOptions = document.createElement('div');
   playerOptions.classList.add('player-options');
   gameBoard.appendChild(playerOptions);
-  
+
   const rockOption = createRockOptionHover();
   playerOptions.appendChild(rockOption);
 
@@ -246,19 +246,19 @@ function createGameBoard() {
 
   const scissorsOption = createScissorsOptionHover();
   playerOptions.appendChild(scissorsOption);
-  
+
   const versus = document.createElement('p');
   versus.classList.add('versus');
   versus.textContent = 'VS';
   gameBoard.appendChild(versus);
-  
+
   const computerChoice = document.createElement('div');
   computerChoice.classList.add('computer-choice');
   gameBoard.appendChild(computerChoice);
 
   const unknownOption = createUnknownOption();
   computerChoice.appendChild(unknownOption);
-  
+
   return gameBoard;
 }
 
@@ -271,22 +271,22 @@ function createActiveGame(numberOfRounds) {
 
   const gameBoard = createGameBoard();
   activeGame.appendChild(gameBoard);
-  
+
   const gameInfo = document.createElement('div');
   gameInfo.classList.add('game-info');
   activeGame.appendChild(gameInfo);
-  
+
   const gameInfoText = document.createElement('p');
   gameInfoText.setAttribute('id', 'game-info-text');
   gameInfoText.textContent = 'Click on either the Rock, Paper, or Scissors';
   gameInfo.appendChild(gameInfoText);
-  
+
   const reset = document.createElement('button');
   reset.setAttribute('type', 'button');
   reset.setAttribute('id', 'reset');
   reset.textContent = 'Reset';
   gameInfo.appendChild(reset);
-  
+
   reset.addEventListener('click', initializeGame);
 
   return activeGame;
@@ -295,10 +295,10 @@ function createActiveGame(numberOfRounds) {
 function startGame() {
   const selectRoundsToPlay = document.getElementById('number-rounds');
   const numberOfRounds = selectRoundsToPlay.value;
-  
+
   const gameContainer = document.querySelector('.game-container');
   removeAllChildNodes(gameContainer);
-  
+
   const activeGame = createActiveGame(numberOfRounds);
   gameContainer.appendChild(activeGame);
 }
@@ -306,20 +306,20 @@ function startGame() {
 function initializeGame() {
   const maxNumberOfRounds = 10;
   const defaultNumberOfRounds = 5;
-  
+
   const gameContainer = document.querySelector('.game-container');
   removeAllChildNodes(gameContainer);
-  
+
   const gameSetup = createGameSetup(maxNumberOfRounds, defaultNumberOfRounds);
   gameContainer.appendChild(gameSetup);
 }
 
 function getComputerChoice() {
   const computerChoiceContainer = document.querySelector('.computer-choice');
-  let choice;  
+  let choice;
   let option;
-  
-  switch(Math.floor(Math.random() * 3)) {
+
+  switch (Math.floor(Math.random() * 3)) {
     case 0:
       choice = ROCK;
       option = createRockOptionNoHover();
@@ -332,7 +332,7 @@ function getComputerChoice() {
       choice = SCISSORS;
       option = createScissorsOptionNoHover();
   }
-  
+
   removeAllChildNodes(computerChoiceContainer);
   computerChoiceContainer.appendChild(option);
 
@@ -362,9 +362,39 @@ function incrementTiePoints() {
   points.textContent = newValue.toString();
 }
 
+function endGame() {
+  const playerOptions = document.querySelector('.player-options');
+  removeAllChildNodes(playerOptions);
+
+  const rockOption = createRockOptionNoHover();
+  playerOptions.appendChild(rockOption);
+
+  const paperOption = createPaperOptionNoHover();
+  playerOptions.appendChild(paperOption);
+
+  const scissorsOption = createScissorsOptionNoHover();
+  playerOptions.appendChild(scissorsOption);
+}
+
+function processRound() {
+  const lastRound = document.getElementById('last-round');
+  const lastRoundValue = Number(lastRound.textContent);
+
+  const currentRound = document.getElementById('current-round');
+  let currentRoundValue = Number(currentRound.textContent);
+
+  if (currentRoundValue < lastRoundValue) {
+    currentRoundValue += 1;
+    currentRound.textContent = currentRoundValue.toString();
+
+  } else {
+    endGame();
+  }
+}
+
 function chooseRock() {
   const computerChoice = getComputerChoice();
-  
+
   switch(computerChoice) {
     case ROCK:
       setGameInfoText(`It's a Tie, you both played ${ROCK}`);
@@ -379,11 +409,13 @@ function chooseRock() {
       incrementPlayerPoints();
       break;
   }
+  
+  processRound();
 }
 
 function choosePaper() {
   const computerChoice = getComputerChoice();
-  
+
   switch(computerChoice) {
     case ROCK:
       setGameInfoText(`You Win! ${PAPER} covers ${ROCK}`);
@@ -398,6 +430,8 @@ function choosePaper() {
       incrementComputerPoints();
       break;
   }
+  
+  processRound();
 }
 
 function chooseScissors() {
@@ -417,6 +451,8 @@ function chooseScissors() {
       incrementTiePoints();
       break;
   }
+  
+  processRound();
 }
 
 initializeGame();
