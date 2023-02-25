@@ -93,6 +93,7 @@ function createGameStatus(numberOfRounds) {
   gameStatus.classList.add('game-status');
 
   const roundInfo = document.createElement('p');
+  roundInfo.setAttribute('id', 'round-info');
 
   const currentRound = document.createElement('span');
   currentRound.setAttribute('id', 'current-round');
