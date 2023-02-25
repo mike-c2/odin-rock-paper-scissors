@@ -64,6 +64,11 @@ select {
   transition: border-color 0.15s, color 0.15s, background-color 0.15s;
 }
 
+#reset {
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+
 .game-status {
   display: flex;
   flex-wrap: wrap;
