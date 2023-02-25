@@ -365,6 +365,9 @@ function incrementTiePoints() {
 
 function endGame() {
   const playerOptions = document.querySelector('.player-options');
+
+  // When the game ends, there is no longer a need for the
+  // Rock, Paper, Scissors options to be clickable by the player.
   removeAllChildNodes(playerOptions);
 
   const rockOption = createRockOptionNoHover();
@@ -375,6 +378,23 @@ function endGame() {
 
   const scissorsOption = createScissorsOptionNoHover();
   playerOptions.appendChild(scissorsOption);
+  
+  const roundInfo = document.getElementById('round-info');
+  removeAllChildNodes(roundInfo);
+  
+  const newText = document.createElement('p');
+  roundInfo.appendChild(newText);
+  
+  const playerPoints = Number(document.getElementById('player-points').textContent);
+  const computerPoints = Number(document.getElementById('computer-points').textContent);
+  
+  if(playerPoints > computerPoints) {
+    newText.textContent = 'Game Over, You Win!';
+  } else if(playerPoints < computerPoints) {
+    newText.textContent = 'Game Over, You Lose'
+  } else {
+    newText.textContent = "Game Over, it's a Tie";
+  }
 }
 
 function processRound() {
