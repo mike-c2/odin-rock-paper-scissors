@@ -1,3 +1,6 @@
+const MAX_NUMBER_OF_ROUNDS = 10;
+const DEFAULT_NUMBER_OF_ROUNDS = 5;
+
 const ROCK = 'Rock';
 const PAPER = 'Paper';
 const SCISSORS = 'Scissors'
@@ -305,13 +308,12 @@ function startGame() {
 }
 
 function initializeGame() {
-  const maxNumberOfRounds = 10;
-  const defaultNumberOfRounds = 5;
-
   const gameContainer = document.querySelector('.game-container');
   removeAllChildNodes(gameContainer);
 
-  const gameSetup = createGameSetup(maxNumberOfRounds, defaultNumberOfRounds);
+  const gameSetup = createGameSetup(MAX_NUMBER_OF_ROUNDS,
+    DEFAULT_NUMBER_OF_ROUNDS);
+
   gameContainer.appendChild(gameSetup);
 }
 
