@@ -153,7 +153,7 @@ function createRockOption() {
 
 function createRockOptionHover() {
   const rockOption = createRockOption();
-  rockOption.classList.add('rock-option');
+  rockOption.classList.add('rps-option');
 
   rockOption.addEventListener('click', chooseRock);
 
@@ -162,7 +162,7 @@ function createRockOptionHover() {
 
 function createRockOptionNoHover() {
   const rockOption = createRockOption();
-  rockOption.classList.add('rock-option-no-hover');
+  rockOption.classList.add('rps-option-no-hover');
 
   return rockOption;
 }
@@ -181,7 +181,7 @@ function createPaperOption() {
 
 function createPaperOptionHover() {
   const paperOption = createPaperOption();
-  paperOption.classList.add('paper-option');
+  paperOption.classList.add('rps-option');
 
   paperOption.addEventListener('click', choosePaper);
 
@@ -190,7 +190,7 @@ function createPaperOptionHover() {
 
 function createPaperOptionNoHover() {
   const paperOption = createPaperOption();
-  paperOption.classList.add('paper-option-no-hover');
+  paperOption.classList.add('rps-option-no-hover');
 
   return paperOption;
 }
@@ -209,7 +209,7 @@ function createScissorsOption() {
 
 function createScissorsOptionHover() {
   const scissorsOption = createScissorsOption();
-  scissorsOption.classList.add('scissors-option');
+  scissorsOption.classList.add('rps-option');
 
   scissorsOption.addEventListener('click', chooseScissors);
 
@@ -218,7 +218,7 @@ function createScissorsOptionHover() {
 
 function createScissorsOptionNoHover() {
   const scissorsOption = createScissorsOption();
-  scissorsOption.classList.add('scissors-option-no-hover');
+  scissorsOption.classList.add('rps-option-no-hover');
 
   return scissorsOption;
 }
