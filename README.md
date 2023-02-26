@@ -15,11 +15,11 @@ On the Start Page, select the number of rounds (1 to 10) that is desired to play
 
 ![Setup screen for the Rock, Paper, Scissors Game](img/game-setup.png)
 
-Once the game begins, click on either the Rock, Paper, or Scissors images on the left side. There is also a Reset button present which will remove the current game and load the Game Setup screen again.
+Once the game begins, click on either the Rock, Paper, or Scissors images on the left side. There is also a Reset button present which will remove the current game and load the Start Page again.
 
 ![Beginning of the Rock, Paper, Scissors Game](img/start-game.png)
 
-As each choice is made, the Computer will randomly select its own choice, and they will be evaluated to see how won.  A message declaring who won the round is displayed below the player Rock, Paper, and Scissors options. The number of points for the Player, Computer, and Ties is also updated.
+As each choice is made, the Computer will randomly select its own choice, and they will be evaluated to see who won.  A message declaring who won the round is displayed below the player Rock, Paper, and Scissors options. The number of points for the Player, Computer, and Ties is also updated.
 
 ![Rock, Paper, Scissors Game in progress](img/game-in-progress.png)
 
